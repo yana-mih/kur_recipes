@@ -74,5 +74,54 @@ namespace Recipe.Views
                 this.Close();
             }
         }
+
+        private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
+        {
+            Zakuski zakuski = new Zakuski();
+            zakuski.Show();
+            this.Close();
+        }
+
+        private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
+        {
+            Salat salat = new Salat();
+            salat.Show();
+            this.Close();
+        }
+
+        private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
+        {
+            Gorahge gorahge = new Gorahge();
+            gorahge.Show();
+            this.Close();
+        }
+
+        private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
+        {
+            Sup sup = new Sup();
+            sup.Show();
+            this.Close();
+        }
+
+        private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
+        {
+            Vipechka vipechka = new Vipechka();
+            vipechka.Show();
+            this.Close();
+        }
+
+        private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
+        {
+            Desert deserts = new Desert();
+            deserts.Show();
+            this.Close();
+        }
+
+        private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
+        {
+            Souse us = new Souse();
+            us.Show();
+            this.Close();
+        }
     }
 }

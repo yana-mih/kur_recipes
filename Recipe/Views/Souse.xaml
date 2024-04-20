@@ -60,55 +60,49 @@
         <!-- Левая полоса для бокового меню -->
         <Grid Background="Beige" Margin="0,75,684,5" Grid.RowSpan="2">
             <StackPanel>
-                <Button Width="100" Height="30" Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold" BorderThickness="1">
-                    <TextBlock>Закуски</TextBlock>
+                <Button Name="ButtonZakuski" Click="ButtonZakuski_OnClick" Content="Закуски" Width="100" Height="30" Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Content="Салаты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSalads" Click="ButtonSalads_OnClick" Content="Салаты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Width="100" Height="30" Margin="0,00,0,20" Background="White" FontStyle="Italic" FontWeight="Bold" BorderThickness="1">
-                    <TextBlock>Горячее</TextBlock>
+                <Button Name="ButtonHot" Click="ButtonHot_OnClick" Content="Горячее" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Width="100" Height="30" Margin="0,00,0,20" Background="White" FontStyle="Italic" FontWeight="Bold" BorderThickness="1">
-                    <TextBlock>Супы</TextBlock>
+                <Button Name="ButtonSoups" Click="ButtonSoups_OnClick" Content="Супы" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Width="100" Height="30" Margin="0,00,0,20" Background="White" FontStyle="Italic" FontWeight="Bold" BorderThickness="1">
-                    <TextBlock>Выпечка</TextBlock>
+                <Button Name="ButtonVipechka" Click="ButtonVipechka_OnClick" Content="Выпечка" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Width="100" Height="30" Margin="0,00,0,20" Background="White" FontStyle="Italic" FontWeight="Bold" BorderThickness="1">
-                    <TextBlock>Десерты</TextBlock>
+                <Button Name="ButtonDeserts" Click="ButtonDeserts_OnClick" Content="Десерты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Width="100" Height="30" Margin="0,00,0,20" Background="White" FontStyle="Italic" FontWeight="Bold" BorderThickness="3">
-                    <TextBlock TextDecorations="Underline">Соусы</TextBlock>
+                <Button Name="ButtonSouses" Click="ButtonSouses_OnClick" Content="Соусы" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"/>
