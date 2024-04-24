@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Recipe.Models.Helper;
+using Recipe.VM;
 
 namespace Recipe.Views
 {
@@ -19,11 +21,27 @@ namespace Recipe.Views
     /// </summary>
     public partial class Sup : Window
     {
+        private SoupVM vm = new SoupVM();
         public Sup()
         {
             InitializeComponent();
+            DataContext = vm;
         }
 
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel stackPanel = sender as StackPanel;
+            if (stackPanel != null)
+            {
+                RecipeHelper selectedRecipe = stackPanel.DataContext as RecipeHelper;
+                if (selectedRecipe != null)
+                {
+                    SelectedRecipe selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
+                    selectedRecipeWindow.Show();
+                    this.Close();
+                }
+            }
+        }
         private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
         {
             Zakuski zakuski = new Zakuski();

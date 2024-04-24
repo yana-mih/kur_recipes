@@ -9,7 +9,6 @@ namespace Recipe.Models
         {
             Recipes = new HashSet<Recipe>();
         }
-
         public int TypeOfDish1 { get; set; }
         public string Name { get; set; } = null!;
 

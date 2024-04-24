@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Recipe.Models;
 
 namespace Recipe.Views
 {
@@ -19,6 +20,7 @@ namespace Recipe.Views
     /// </summary>
     public partial class Registracia : Window
     {
+        private RecipeContext db = new RecipeContext();
         public Registracia()
         {
             InitializeComponent();
@@ -88,10 +90,6 @@ namespace Recipe.Views
                 this.Close();
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
         {
@@ -112,6 +110,48 @@ namespace Recipe.Views
             Dobavlenie dobavlenie = new Dobavlenie();
             dobavlenie.Show();
             this.Close();
+        }
+
+        private void ButtonReg_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(BoxLogin.Text) &&
+                !string.IsNullOrEmpty(BoxPassword.Password.ToString()) &&
+                !string.IsNullOrEmpty(PickerDate.Text) &&
+                !string.IsNullOrEmpty(BoxLastName.Text) &&
+                !string.IsNullOrEmpty(BoxName.Text))
+            {
+                Person? existPerson = db.People
+                    .Where(p => p.Login == BoxLogin.Text && p.Password == p.Password).FirstOrDefault();
+
+                if (existPerson != null)
+                {
+                    MessageBox.Show("Ошибка!");
+                }
+                else
+                {
+                    Person person = new Person()
+                {
+                    FirstName = BoxName.Text,
+                    LastName = BoxLastName.Text,
+                    Birthday = DateTime.Parse(PickerDate.Text),
+                    Login = BoxLogin.Text,
+                    Password = BoxPassword.Password.ToString()
+                };
+                    db.People.Add(person);
+                    db.SaveChanges();
+
+                    App.CurrentUser = person;
+                    Profile2 profile2 = new Profile2();
+                    profile2.Show();
+                    this.Close();
+                }
+
+                
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены!");
+            }
         }
     }
 }

@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe"
-        mc:Ignorable="d"
-        Title="Dobavlenie" Height="700" Width="820">
+        mc:Ignorable="d" Loaded="Dobavlenie_OnLoaded"
+        Title="Dobavlenie" Height="700" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -119,13 +119,20 @@
             <Label Content="Тип приготовления" Margin="150,180,484,220" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
             <Label Content="Тип блюда" Margin="150,225,500,181" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
             <Label Content="Основной ингридиент" Margin="150,270,466,123" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="353,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="333,185,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" />
-            <ComboBox HorizontalAlignment="Left" Margin="343,271,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="313,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="233,137,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="271,230,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <Button Content="Добавить рецепт" Margin="354,352,328,48" Background="Beige" Padding="10" Height="40" FontStyle="Italic" FontWeight="Bold" Grid.Row="1" >
+
+            <Label Content="КБЖУ" FontWeight="Bold" FontStyle="Italic" FontSize="15" Margin="151,307,527,103" Grid.Row="1"/>
+            <TextBox Name="BoxKBZY" HorizontalAlignment="Left" Margin="343,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+
+            <Label Content="Время приготовления" FontWeight="Bold" FontStyle="Italic" FontSize="15" Margin="151,342,527,68" Grid.Row="1"/>
+            <TextBox Name="BoxTime" HorizontalAlignment="Left" Margin="343,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+
+            <TextBox Name="BoxNameRecipe" HorizontalAlignment="Left" Margin="353,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="BoxPreparationType" HorizontalAlignment="Left"  Margin="333,185,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="BoxMajorIngr" HorizontalAlignment="Left" Margin="343,271,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="BoxCategory" HorizontalAlignment="Left" Margin="313,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="BoxKithen" HorizontalAlignment="Left" Margin="233,137,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="BoxTypeDish" HorizontalAlignment="Left" Margin="271,230,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <Button Content="Добавить рецепт" Click="ButtonBase_OnClick" Margin="353,384,329,16" Background="Beige" Padding="10" Height="40" FontStyle="Italic" FontWeight="Bold" Grid.Row="1" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -133,7 +140,8 @@
                 </Button.Resources>
             </Button>
             <Label Content="Добавьте фото" Margin="150,99,500,11" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
-            <Button Content="Выбрать" Background="White" FontStyle="Italic" FontWeight="Bold" Margin="353,97,367,32">
+            <TextBox Text="Успешно выбрано" Name="BoxAddPhoto" Visibility="Hidden" Background="White" FontStyle="Italic" FontWeight="Bold" Margin="353,97,367,32"/>
+            <Button Content="Выбрать" Visibility="Visible" Name="ButtonAddPhoto" Click="ButtonAddPhoto_OnClick" Background="White" FontStyle="Italic" FontWeight="Bold" Margin="353,97,367,32">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -141,9 +149,9 @@
                 </Button.Resources>
             </Button>
             <Label Content="Описание блюда" Margin="150,151,500,400" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.RowSpan="2"/>
-            <TextBox HorizontalAlignment="Left" Margin="353,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
+            <TextBox Name="BoxDescryption" HorizontalAlignment="Left" Margin="353,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.RowSpan="2"/>
             <Label Content="Ингредиенты блюда" Margin="150,40,500,352" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="353,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+            <TextBox HorizontalAlignment="Left" Name="BoxIngredients" Margin="353,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
             <Grid.RowDefinitions>
                 <RowDefinition Height="97*"/>
                 <RowDefinition Height="269*"/>

@@ -15,6 +15,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Drawing.Common" Version="8.0.4" />
   </ItemGroup>
+
+<!-- %96 324<6?5 H2D HC:EE6? 2D 2 ;@<6] x 5:5?VE >2<6 2?J D6C:@FD 677@CE 2E 2==] iX pFE9@Ci r2A:E2? rot4* -->
 
 </Project>

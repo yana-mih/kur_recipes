@@ -11,37 +11,53 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Recipe.Helper;
+using Recipe.Models;
 using Recipe.Models.Helper;
-using Recipe.VM;
 
 namespace Recipe.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Salat.xaml
+    /// Логика взаимодействия для SelectedRecipe.xaml
     /// </summary>
-    public partial class Salat : Window
+    public partial class SelectedRecipe : Window
     {
-        private SaladsVM Vm = new SaladsVM();
-        public Salat()
+        private RecipeContext db = new RecipeContext();
+        public SelectedRecipe(RecipeHelper currPecipe)
         {
             InitializeComponent();
-            DataContext = Vm;
+
+            MainProductRecipe mainprod1 = db.MainProductRecipes.Where(mp => mp.MainProductRecipeId == currPecipe.RecipeId).FirstOrDefault();
+
+            MainProduct mainProduct =
+                db.MainProducts.Where(m => m.MainProductId == mainprod1.MainProductId).FirstOrDefault();
+
+            Person person = db.People.Where(p => p.PersonId == currPecipe.PersonId).FirstOrDefault();
+
+            Kitchen kitchen = db.Kitchens.Where(k => k.KitchenId == currPecipe.KitchenId).FirstOrDefault();
+
+            TypeOfCooking typeOfCooking = db.TypeOfCookings.Where(k => k.TypeOfCookingId == currPecipe.TypeOfCookingId).FirstOrDefault();
+
+            TypeOfDish typeOfDish = db.TypeOfDishes.Where(k => k.TypeOfDish1 == currPecipe.TypeOfDishId).FirstOrDefault();
+
+
+            BlockAuthor.Text = person.FirstName;
+            BlockDescryption.Text = currPecipe.Description;
+            BlockIngredients.Text = currPecipe.Ingredients;
+            BlockKBZY.Text = currPecipe.Kbzy;
+
+            BlockKitchen.Text = kitchen.Name;
+            BlockNameRecipe.Text = currPecipe.NameRecipe;
+            BlockTime.Text = currPecipe.Time;
+
+            BlockType.Text = typeOfCooking.Name;
+
+            BlockType2.Text = typeOfDish.Name;
+            BlockMajorIngr.Text = mainProduct.Name;
+
+            SelectedImage.Source = ImgHelper.ByteArrayToImage(currPecipe.ImageBytes);
         }
 
-        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            StackPanel stackPanel = sender as StackPanel;
-            if (stackPanel != null)
-            {
-                RecipeHelper selectedRecipe = stackPanel.DataContext as RecipeHelper;
-                if (selectedRecipe != null)
-                {
-                    SelectedRecipe selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
-                    selectedRecipeWindow.Show();
-                    this.Close();
-                }
-            }
-        }
         private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
         {
             Zakuski zakuski = new Zakuski();
@@ -90,23 +106,6 @@ namespace Recipe.Views
             us.Show();
             this.Close();
         }
-
-
-        private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (App.CurrentUser != null)
-            {
-                Profile2 profile = new Profile2();
-                profile.Show();
-                this.Close();
-            }
-            else
-            {
-                Profile profile = new Profile();
-                profile.Show();
-                this.Close();
-            }
-        }
         private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
         {
             Recipes recipes = new Recipes();
@@ -126,6 +125,22 @@ namespace Recipe.Views
             Dobavlenie dobavlenie = new Dobavlenie();
             dobavlenie.Show();
             this.Close();
+        }
+
+        private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (App.CurrentUser != null)
+            {
+                Profile2 profile = new Profile2();
+                profile.Show();
+                this.Close();
+            }
+            else
+            {
+                Profile profile = new Profile();
+                profile.Show();
+                this.Close();
+            }
         }
     }
 }

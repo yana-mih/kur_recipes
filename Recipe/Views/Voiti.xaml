@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe"
         mc:Ignorable="d"
-        Title="Voiti" Height="500" Width="820">
+        Title="Voiti" Height="500" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        xmlns:helper="clr-namespace:Recipe.Helper">
+
+    <Window.Resources>
+        <helper:ConvertByteArrayToImageConverter x:Key="ConvertByteArrayToImageConverter"/>
+    </Window.Resources>
+
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -114,15 +120,15 @@
         <Grid Grid.Row="1">
             <Label Content="Войти" Margin="361,39,361,10" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
             <Label Content="Логин" Margin="288,19,434,193" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
-            <Button Content="Войти" Margin="350,133,350,83" Background="White" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" BorderThickness="1" Grid.Row="1" >
+            <Button Content="Войти" Name="ButtonSignIn" Click="ButtonSignIn_OnClick" Margin="350,133,350,83" Background="White" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" BorderThickness="1" Grid.Row="1" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <TextBox HorizontalAlignment="Center" Margin="0,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <TextBox HorizontalAlignment="Center" Margin="0,73,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBox HorizontalAlignment="Center" Margin="0,24,0,0" Grid.Row="1" TextWrapping="Wrap" Name="TextBoxUserLogin" VerticalAlignment="Top" Width="120"/>
+            <PasswordBox HorizontalAlignment="Center" Margin="0,73,0,0" Grid.Row="1" Name="TextBoxUserPassword" VerticalAlignment="Top" Width="120"/>
             <Label Content="Пароль" Margin="288,68,434,143" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
             <Grid.RowDefinitions>
                 <RowDefinition Height="97*"/>

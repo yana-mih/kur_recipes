@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Recipe.VM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Recipe.Models.Helper;
 
 namespace Recipe.Views
 {
@@ -19,11 +21,27 @@ namespace Recipe.Views
     /// </summary>
     public partial class Souse : Window
     {
+        private SousesVM Vm = new SousesVM();
         public Souse()
         {
             InitializeComponent();
+            DataContext = Vm;
         }
 
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel stackPanel = sender as StackPanel;
+            if (stackPanel != null)
+            {
+                RecipeHelper selectedRecipe = stackPanel.DataContext as RecipeHelper;
+                if (selectedRecipe != null)
+                {
+                    SelectedRecipe selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
+                    selectedRecipeWindow.Show();
+                    this.Close();
+                }
+            }
+        }
         private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
         {
             Zakuski zakuski = new Zakuski();

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe"
         mc:Ignorable="d"
-        Title="Profile" Height="500" Width="820">
+        Title="Profile" Height="500" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
+using Recipe.Models;
 
 namespace Recipe.Views
 {
@@ -19,6 +21,7 @@ namespace Recipe.Views
     /// </summary>
     public partial class Recipes : Window
     {
+        private RecipeContext db = new RecipeContext();
         public Recipes()
         {
             InitializeComponent();
@@ -108,6 +111,55 @@ namespace Recipe.Views
             Dobavlenie dobavlenie = new Dobavlenie();
             dobavlenie.Show();
             this.Close();
+        }
+
+        private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextBoxRecipeName.Text) ||
+                ComboBoxCategoryName.SelectedValue != null ||
+                ComboBoxKitchenName.SelectedValue != null ||
+                ComboBoxMajorIngredientName.SelectedValue != null ||
+                ComboBoxTypeCookingName.SelectedValue != null ||
+                ComboBoxTypeFood.SelectedValue != null)
+            {
+                var recipes = db.Recipes.AsQueryable();
+
+                if (!string.IsNullOrEmpty(TextBoxRecipeName.Text))
+                {
+                    recipes = recipes.Where(r => r.NameRecipe.ToLower().Contains(TextBoxRecipeName.Text.Trim().ToLower()));
+                }
+
+                if (ComboBoxCategoryName.SelectedValue != null)
+                {
+                    string selectedCategory = ComboBoxCategoryName.SelectedValue.ToString();
+                    recipes = recipes.Where(r => r.Category.Name == selectedCategory);
+                }
+
+                var filteredRecipes = recipes.ToList();
+                Recipes2 recipes2 = new Recipes2();
+                recipes2.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Хотя бы одно из полей должно быть заполнено!");
+            }
+        }
+
+
+        private void Recipes_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            db.Categories.Load();
+            db.Kitchens.Load();
+            db.MainProducts.Load();
+            db.TypeOfCookings.Load();
+            db.TypeOfDishes.Load();
+
+            ComboBoxCategoryName.ItemsSource = db.Categories.Local.Select(c => c.Name).ToList();
+            ComboBoxKitchenName.ItemsSource = db.Kitchens.Local.Select(k => k.Name).ToList();
+            ComboBoxMajorIngredientName.ItemsSource = db.MainProducts.Local.Select(mp => mp.Name).ToList();
+            ComboBoxTypeCookingName.ItemsSource = db.TypeOfCookings.Local.Select(tc => tc.Name).ToList();
+            ComboBoxTypeFood.ItemsSource = db.TypeOfDishes.Local.Select(td => td.Name).ToList();
         }
     }
 }

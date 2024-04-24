@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe"
         mc:Ignorable="d"
-        Title="Profile2" Height="500" Width="820">
+        Loaded="Profile2_OnLoaded"
+        Title="Profile2" Height="500" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -114,16 +115,19 @@
         <!-- Основное содержимое страницы -->
         <Grid Grid.Row="1">
             <Label Content="Профиль" Margin="350,39,350,10" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
-            <Label Content="Ваше имя:" Margin="163,0,559,212" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
-            <Button Content="Редактировать" Margin="332,155,332,61" Background="White" Padding="10" Height="40" FontStyle="Italic" FontWeight="Bold" BorderThickness="1" Grid.Row="1" >
+            <TextBlock Foreground="Black" Name="TextBlockCurrentUsername" Background="Transparent" Margin="261,10,293,254" Grid.Row="1"/>
+            <Label Content="Ваше имя:" Margin="163,10,564,258" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
+            <Button Name="ButtonToChanged" Click="ButtonToChanged_OnClick" Content="Редактировать" Margin="332,155,332,61" Background="White" Padding="10" Height="40" FontStyle="Italic" FontWeight="Bold" BorderThickness="1" Grid.Row="1" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Label Content="Ваша фамилия:" Margin="163,44,548,166" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
-            <Label Content="Ваша дата рождения:" Margin="163,95,513,114" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
+            <Label Content="Ваша фамилия:" Margin="163,56,548,207" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
+            <TextBlock Foreground="Black" Name="TextBlockCurrentUserLname" Background="Transparent" Margin="264,56,264,207" Grid.Row="1"/>
+            <Label Content="Ваша дата рождения:" Margin="163,106,513,156" FontWeight="Bold" FontStyle="Italic" FontSize="10" Grid.Row="1"/>
+            <TextBlock Foreground="Black" Name="TextBlockCurrentUserBDate" Background="Transparent" Margin="307,106,221,160" Grid.Row="1"/>
             <Grid.RowDefinitions>
                 <RowDefinition Height="97*"/>
                 <RowDefinition Height="269*"/>

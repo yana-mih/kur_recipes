@@ -8,6 +8,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Recipe.Helper;
+using Recipe.Models;
+using Recipe.Models.Helper;
+using Recipe.VM;
+using Image = Recipe.Models.Image;
 
 namespace Recipe.Views
 {
@@ -16,11 +21,47 @@ namespace Recipe.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BaseRecipeVM vm = new BaseRecipeVM();
+        private RecipeContext db = new RecipeContext();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = vm;
+
+           /* byte[] byteArray = ImgHelper.ImageToByteArray(@"C:\Users\capit\Desktop\DSWM\Recipe\Image\грибной_суп.jpg");
+
+            Image image = new Image()
+            {
+                Image1 = byteArray
+            };
+            db.Images.Add(image);
+            db.SaveChanges();
+
+            var savedImage = db.Images.Where(i => i.Image1 == byteArray).FirstOrDefault();
+
+            var product = db.Recipes.Where(p => p.NameRecipe == "Грибной суп").FirstOrDefault();
+            product.ImageId = savedImage.ImageId;
+
+            db.SaveChanges();*/
+
+
         }
 
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel stackPanel = sender as StackPanel;
+            if (stackPanel != null)
+            {
+                RecipeHelper selectedRecipe = stackPanel.DataContext as RecipeHelper;
+
+                if (selectedRecipe != null)
+                {
+                    SelectedRecipe selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
+                    selectedRecipeWindow.Show();
+                    this.Close();
+                }
+            }
+        }
         private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
         {
             Zakuski zakuski = new Zakuski();

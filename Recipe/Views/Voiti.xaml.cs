@@ -1,24 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Recipe.Models;
 
 namespace Recipe.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для Voiti.xaml
-    /// </summary>
     public partial class Voiti : Window
     {
+        private RecipeContext db = new RecipeContext();
         public Voiti()
         {
             InitializeComponent();
@@ -107,6 +95,45 @@ namespace Recipe.Views
             Dobavlenie dobavlenie = new Dobavlenie();
             dobavlenie.Show();
             this.Close();
+        }
+
+        private void ButtonSignIn_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextBoxUserLogin.Text) &&
+                !string.IsNullOrEmpty(TextBoxUserPassword.Password.ToString()))
+            {
+                var currUser = db.People.Where(p => p.Password == TextBoxUserPassword.Password.ToString().Trim()
+                                                    && p.Login == TextBoxUserLogin.Text.Trim()).FirstOrDefault();
+                if (currUser != null)
+                {
+                    App.CurrentUser = currUser;
+                    Profile2 profile = new();
+                    profile.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Логин или пароль введен неверно!");
+                }
+            }
+            else if (!string.IsNullOrEmpty(TextBoxUserLogin.Text))
+            {
+                TextBoxUserLogin.ToolTip = "Некорректный формат!";
+                TextBoxUserLogin.Background = Brushes.Red;
+            }
+            else if (!string.IsNullOrEmpty(TextBoxUserPassword.Password.ToString()))
+            {
+                TextBoxUserPassword.ToolTip = "Некорректный формат!";
+                TextBoxUserPassword.Background = Brushes.Red;
+            }
+            else
+            {
+                TextBoxUserLogin.ToolTip = "Некорректный формат!";
+                TextBoxUserLogin.Background = Brushes.Red;
+
+                TextBoxUserPassword.ToolTip = "Некорректный формат!";
+                TextBoxUserPassword.Background = Brushes.Red;
+            }
         }
     }
 }

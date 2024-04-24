@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Recipe.Models;
+using Recipe.Models.Helper;
+using Recipe.VM;
 
 namespace Recipe.Views
 {
@@ -19,9 +23,27 @@ namespace Recipe.Views
     /// </summary>
     public partial class Desert : Window
     {
+        private RecipeContext db = new RecipeContext();
+        private DesertVM desertVm = new DesertVM();
         public Desert()
         {
             InitializeComponent();
+            DataContext = desertVm;
+        }
+
+        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel stackPanel = sender as StackPanel;
+            if (stackPanel != null)
+            {
+                RecipeHelper selectedRecipe = stackPanel.DataContext as RecipeHelper;
+                if (selectedRecipe != null)
+                {
+                    SelectedRecipe selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
+                    selectedRecipeWindow.Show();
+                    this.Close();
+                }
+            }
         }
 
         private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)

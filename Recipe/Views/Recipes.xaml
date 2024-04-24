@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe"
         mc:Ignorable="d"
-        Title="Recipes" Height="500" Width="820">
+        Loaded="Recipes_OnLoaded"
+        Title="Recipes" Height="500" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -119,13 +120,13 @@
             <Label Content="Тип приготовления" Margin="150,76,484,146" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
             <Label Content="Тип блюда" Margin="152,115,498,108" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
             <Label Content="Основной ингридиент" Margin="150,153,466,70" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="353,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="353,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" />
-            <ComboBox HorizontalAlignment="Left" Margin="242,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Center" Margin="0,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="262,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox HorizontalAlignment="Left" Margin="353,158,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <Button Content="Поиск" Margin="363,206,337,10" Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" Grid.Row="1" >
+            <TextBox HorizontalAlignment="Left" Margin="353,57,0,0" TextWrapping="Wrap" Name="TextBoxRecipeName" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="ComboBoxCategoryName" HorizontalAlignment="Left" Margin="353,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="ComboBoxKitchenName" HorizontalAlignment="Left" Margin="242,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="ComboBoxTypeCookingName" HorizontalAlignment="Center" Margin="0,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="ComboBoxTypeFood" HorizontalAlignment="Left" Margin="262,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="ComboBoxMajorIngredientName" HorizontalAlignment="Left" Margin="353,158,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+            <Button Name="ButtonSearch" Click="ButtonSearch_OnClick" Content="Поиск" Margin="363,206,337,10" Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" Grid.Row="1" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
