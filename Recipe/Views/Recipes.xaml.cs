@@ -115,35 +115,51 @@ namespace Recipe.Views
 
         private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(TextBoxRecipeName.Text) ||
-                ComboBoxCategoryName.SelectedValue != null ||
-                ComboBoxKitchenName.SelectedValue != null ||
-                ComboBoxMajorIngredientName.SelectedValue != null ||
-                ComboBoxTypeCookingName.SelectedValue != null ||
-                ComboBoxTypeFood.SelectedValue != null)
+            var recipes = db.Recipes.AsQueryable();
+
+            if (!string.IsNullOrEmpty(TextBoxRecipeName.Text))
             {
-                var recipes = db.Recipes.AsQueryable();
-
-                if (!string.IsNullOrEmpty(TextBoxRecipeName.Text))
-                {
-                    recipes = recipes.Where(r => r.NameRecipe.ToLower().Contains(TextBoxRecipeName.Text.Trim().ToLower()));
-                }
-
-                if (ComboBoxCategoryName.SelectedValue != null)
-                {
-                    string selectedCategory = ComboBoxCategoryName.SelectedValue.ToString();
-                    recipes = recipes.Where(r => r.Category.Name == selectedCategory);
-                }
-
-                var filteredRecipes = recipes.ToList();
-                Recipes2 recipes2 = new Recipes2();
-                recipes2.Show();
-                this.Close();
+                recipes = recipes.Where(r => r.NameRecipe.ToLower().Contains(TextBoxRecipeName.Text.Trim().ToLower()));
             }
-            else
+
+            if (ComboBoxCategoryName.SelectedValue != null)
             {
-                MessageBox.Show("Хотя бы одно из полей должно быть заполнено!");
+                string selectedCategory = ComboBoxCategoryName.SelectedValue.ToString();
+                recipes = recipes.Where(r => r.Category.Name == selectedCategory);
             }
+
+            if (ComboBoxKitchenName.SelectedValue != null)
+            {
+                string selectedKitchen = ComboBoxKitchenName.SelectedValue.ToString();
+                recipes = recipes.Where(r => r.Kitchen.Name == selectedKitchen);
+            }
+
+            if (ComboBoxMajorIngredientName.SelectedValue != null)
+            {
+                string selectedIngredient = ComboBoxMajorIngredientName.SelectedValue.ToString();
+                recipes = recipes.Where(r => r.Ingredients.Contains(selectedIngredient));
+            }
+
+            if (ComboBoxTypeCookingName.SelectedValue != null)
+            {
+                string selectedTypeCooking = ComboBoxTypeCookingName.SelectedValue.ToString();
+                recipes = recipes.Where(r => r.TypeOfCooking.Name == selectedTypeCooking);
+            }
+
+            if (ComboBoxTypeFood.SelectedValue != null)
+            {
+                string selectedTypeFood = ComboBoxTypeFood.SelectedValue.ToString();
+                recipes = recipes.Where(r => r.TypeOfDish.Name == selectedTypeFood);
+            }
+
+            var filteredRecipes = recipes.ToList();
+
+            Recipes2 recipes2 = new Recipes2();
+
+            recipes2.SearchBigResult(filteredRecipes);
+            recipes2.Show();
+            this.Close();
+            
         }
 
 

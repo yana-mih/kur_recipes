@@ -1,18 +1,9 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Recipe.Helper;
 using Recipe.Models;
 using Recipe.Models.Helper;
 using Recipe.VM;
-using Image = Recipe.Models.Image;
 
 namespace Recipe.Views
 {
@@ -146,6 +137,20 @@ namespace Recipe.Views
             Dobavlenie dobavlenie = new Dobavlenie();
             dobavlenie.Show();
             this.Close();
+        }
+
+        private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (!string.IsNullOrEmpty(SearchBox.Text))
+                {
+                    Recipes2 recipes = new Recipes2();
+                    recipes.Show();
+                    recipes.SearchResult(SearchBox.Text.Trim().ToLower());
+                    this.Close();
+                }
+            }
         }
     }
 }

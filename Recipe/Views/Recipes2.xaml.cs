@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Recipe.Models;
 using Recipe.Models.Helper;
 using Recipe.VM;
 
@@ -21,9 +12,12 @@ namespace Recipe.Views
     /// </summary>
     public partial class Recipes2 : Window
     {
+        private RecipeContext db = new RecipeContext();
+        private BaseRecipeVM vm = new BaseRecipeVM();
         public Recipes2()
         {
             InitializeComponent();
+            DataContext = vm;
         }
 
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -40,6 +34,31 @@ namespace Recipe.Views
                 }
             }
         }
+
+        private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (!string.IsNullOrEmpty(SearchBox.Text))
+                {
+                    Recipes2 recipes = new Recipes2();
+                    recipes.Show();
+                    recipes.SearchResult(SearchBox.Text.Trim().ToLower());
+                    this.Close();
+                }
+            }
+        }
+
+        public void SearchResult(string recipename)
+        {
+            CategoryControl.ItemsSource = vm.GetSearhResult(recipename);
+        }
+
+        public void SearchBigResult(List<Models.Recipe> listRecipes)
+        {
+            CategoryControl.ItemsSource = vm.GetBigSearchResult(listRecipes);
+        }
+
         private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
         {
             Zakuski zakuski = new Zakuski();

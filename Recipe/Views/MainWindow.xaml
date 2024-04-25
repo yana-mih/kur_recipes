@@ -115,7 +115,7 @@
         <!-- Основное содержимое страницы -->
         <Grid Grid.Row="1" Margin="166,0,126,0">
             <Label Content="Поиск рецепта" HorizontalAlignment="Left" Margin="134,-2,0,0" VerticalAlignment="Top" Height="25" Width="104" FontWeight="Bold" FontStyle="Italic"/>
-            <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="134,28,0,0"/>
+            <TextBox Name="SearchBox" KeyDown="SearchBox_OnKeyDown" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="134,28,0,0"/>
             <Label Content="Популярное у нас" HorizontalAlignment="Left" Margin="220,50,0,10" FontWeight="Bold" FontStyle="Italic" FontSize="18" Width="auto" RenderTransformOrigin="0.5,0.5">
             </Label>
             <Grid.RowDefinitions>

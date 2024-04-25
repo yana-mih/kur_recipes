@@ -113,7 +113,7 @@
 
         <!-- Основное содержимое страницы -->
         <Grid Grid.Row="1">
-            <Label Content="Поиск рецепта" Margin="330,5,0,20" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
+            <Label Content="Поиск рецепта" Margin="330,5,310,54" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
             <Label Content="Название рецепта" Margin="150,50,500,10" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
             <Label Content="Категория блюда" Margin="150,0,500,224" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
             <Label Content="Кухня" Margin="150,37,500,185" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>

@@ -112,7 +112,7 @@
 
         <!-- Основное содержимое страницы -->
         <Grid Grid.Row="1">
-            <Label Content="Добавление рецепта" Margin="313,10,287,62" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
+            <Label Content="Добавление рецепта" Margin="313,10,287,102" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
             <Label Content="Название рецепта" Margin="150,50,500,10" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
             <Label Content="Категория блюда" Margin="150,89,500,303" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
             <Label Content="Кухня" Margin="150,132,500,269" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
@@ -140,7 +140,7 @@
                 </Button.Resources>
             </Button>
             <Label Content="Добавьте фото" Margin="150,99,500,11" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
-            <TextBox Text="Успешно выбрано" Name="BoxAddPhoto" Visibility="Hidden" Background="White" FontStyle="Italic" FontWeight="Bold" Margin="353,97,367,32"/>
+            <TextBlock Text="Успешно выбрано" Name="BoxAddPhoto" Visibility="Hidden" Background="White" FontStyle="Italic" FontWeight="Bold" Margin="353,97,367,32" Width="100"/>
             <Button Content="Выбрать" Visibility="Visible" Name="ButtonAddPhoto" Click="ButtonAddPhoto_OnClick" Background="White" FontStyle="Italic" FontWeight="Bold" Margin="353,97,367,32">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">

@@ -1,16 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Recipe.Helper;
 using Recipe.Models;
 using Recipe.Models.Helper;
@@ -26,8 +17,9 @@ namespace Recipe.Views
         public SelectedRecipe(RecipeHelper currPecipe)
         {
             InitializeComponent();
+            int recipeId = currPecipe.RecipeId;
 
-            MainProductRecipe mainprod1 = db.MainProductRecipes.Where(mp => mp.MainProductRecipeId == currPecipe.RecipeId).FirstOrDefault();
+            MainProductRecipe mainprod1 = db.MainProductRecipes.Where(mp => mp.RecipeId == recipeId).FirstOrDefault();
 
             MainProduct mainProduct =
                 db.MainProducts.Where(m => m.MainProductId == mainprod1.MainProductId).FirstOrDefault();

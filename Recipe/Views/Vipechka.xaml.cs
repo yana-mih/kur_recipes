@@ -28,6 +28,19 @@ namespace Recipe.Views
             DataContext = vm;
         }
 
+        private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (!string.IsNullOrEmpty(SearchBox.Text))
+                {
+                    Recipes2 recipes = new Recipes2();
+                    recipes.Show();
+                    recipes.SearchResult(SearchBox.Text.Trim().ToLower());
+                    this.Close();
+                }
+            }
+        }
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             StackPanel stackPanel = sender as StackPanel;
