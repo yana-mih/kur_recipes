@@ -1,8 +1,6 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using Recipe.Models;
 using Recipe.Models.Helper;
 using Recipe.VM;
@@ -14,29 +12,30 @@ namespace Recipe.Views;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private RecipeContext db = new();
     private readonly BaseRecipeVM vm = new();
+    private RecipeContext db = new();
+
     public MainWindow()
     {
         InitializeComponent();
         DataContext = vm;
-    
-    /* byte[] byteArray = ImgHelper.ImageToByteArray(@"C:\Users\capit\Desktop\DSWM\Recipe\Image\грибной_суп.jpg");
 
-     Image image = new Image()
-     {
-         Image1 = byteArray
-     };
-     db.Images.Add(image);
-     db.SaveChanges();
+        /* byte[] byteArray = ImgHelper.ImageToByteArray(@"C:\Users\capit\Desktop\DSWM\Recipe\Image\грибной_суп.jpg");
 
-     var savedImage = db.Images.Where(i => i.Image1 == byteArray).FirstOrDefault();
+         Image image = new Image()
+         {
+             Image1 = byteArray
+         };
+         db.Images.Add(image);
+         db.SaveChanges();
 
-     var product = db.Recipes.Where(p => p.NameRecipe == "Грибной суп").FirstOrDefault();
-     product.ImageId = savedImage.ImageId;
+         var savedImage = db.Images.Where(i => i.Image1 == byteArray).FirstOrDefault();
 
-     db.SaveChanges();*/
-}
+         var product = db.Recipes.Where(p => p.NameRecipe == "Грибной суп").FirstOrDefault();
+         product.ImageId = savedImage.ImageId;
+
+         db.SaveChanges();*/
+    }
 
     private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
     {

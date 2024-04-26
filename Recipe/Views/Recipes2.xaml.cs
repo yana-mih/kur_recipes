@@ -12,8 +12,8 @@ namespace Recipe.Views;
 /// </summary>
 public partial class Recipes2 : Window
 {
-    private RecipeContext db = new();
     private readonly BaseRecipeVM vm = new();
+    private RecipeContext db = new();
 
     public Recipes2()
     {

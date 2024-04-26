@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Profile2" Height="250" Loaded="Profile2_OnLoaded" Width="450" ResizeMode="NoResize"
+        Title="Profile2" Height="300" Loaded="Profile2_OnLoaded" Width="450" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
@@ -15,13 +15,13 @@
 
         <!-- Основное содержимое страницы -->
         <Grid Grid.Row="0">
-            <Label Content="Профиль" Margin="175,-3,175,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" />
-            <TextBox Foreground="Black" Name="TextBlockCurrentUsername" Background="Transparent" Margin="158,20,175,26"
+            <Label Content="Профиль" Margin="175,-3,147,2" FontWeight="Bold" FontStyle="Italic" FontSize="20" />
+            <TextBox Foreground="Black" Name="TextBlockCurrentUsername" Background="Transparent" Margin="158,14,111,10"
                      Grid.Row="1" RenderTransformOrigin="0.5,0.5" />
-            <Label Content="Ваше имя:" Margin="54,14,303,26" FontWeight="Bold" FontStyle="Italic" FontSize="10"
+            <Label Content="Ваше имя:" Margin="54,14,303,10" FontWeight="Bold" FontStyle="Italic" FontSize="10"
                    Grid.Row="1" />
             <Button Name="ButtonSaveChanges" Click="ButtonSaveChanges_OnClick" Content="Сохранить изменения"
-                    Margin="147,148,147,-127" Background="White" Padding="10" FontStyle="Italic" FontWeight="Bold"
+                    Margin="127,181,111,-160" Background="White" Padding="10" FontStyle="Italic" FontWeight="Bold"
                     BorderThickness="1" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -37,14 +37,14 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
-            <Label Content="Ваша фамилия:" Margin="51,58,303,-22" FontWeight="Bold" FontStyle="Italic" FontSize="10"
+            <Label Content="Ваша фамилия:" Margin="51,66,303,-43" FontWeight="Bold" FontStyle="Italic" FontSize="10"
                    Grid.Row="1" />
             <TextBox Foreground="Black" Name="TextBlockCurrentUserLname" Background="Transparent"
-                     Margin="158,62,152,-16" Grid.Row="1" />
-            <Label Content="Ваша дата рождения:" Margin="54,108,275,-70" FontWeight="Bold" FontStyle="Italic"
+                     Margin="158,62,111,-41" Grid.Row="1" />
+            <Label Content="Ваша дата рождения:" Margin="40,135,289,-121" FontWeight="Bold" FontStyle="Italic"
                    FontSize="10" Grid.Row="1" />
             <DatePicker Foreground="Black" Name="TextBlockCurrentUserBDate" Background="Transparent"
-                        Margin="180,106,152,-70" Grid.Row="1" />
+                        Margin="175,134,111,-98" Grid.Row="1" />
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="3*" />

@@ -116,45 +116,31 @@ public partial class Registracia : Window
             !string.IsNullOrEmpty(BoxLastName.Text) &&
             !string.IsNullOrEmpty(BoxName.Text))
         {
-            DateTime? selectedDateNullable = PickerDate.SelectedDate;
+            var selectedDateNullable = PickerDate.SelectedDate;
 
             if (selectedDateNullable.HasValue)
             {
-                DateTime selectedDate = selectedDateNullable.Value;
+                var selectedDate = selectedDateNullable.Value;
 
                 if (selectedDate != null)
                 {
-                    DateTime currentDate = DateTime.Today;
-                    int age = currentDate.Year - selectedDate.Year;
+                    var currentDate = DateTime.Today;
+                    var age = currentDate.Year - selectedDate.Year;
 
                     if (currentDate.Month < selectedDate.Month ||
                         (currentDate.Month == selectedDate.Month && currentDate.Day < selectedDate.Day))
-                    {
                         age--;
-                    }
 
-                    if (age < 12)
-                    {
-                        MessageBox.Show("Ваш возраст не может быть меньше 12 лет!");
-                    }
+                    if (age < 12) MessageBox.Show("Ваш возраст не может быть меньше 12 лет!");
                 }
 
                 if (BoxLogin.Text.Length <= 4)
-                {
                     MessageBox.Show("Длина логина должна превышать 4 символа!");
-                }
                 else if (BoxPassword.Password.Length <= 4)
-                {
                     MessageBox.Show("Длина пароля должна превышать 4 символа!");
-                }
                 else if (BoxLastName.Text.Length <= 3)
-                {
                     MessageBox.Show("Длина фамилии должна превышать 3 символа!");
-                }
-                else if (BoxName.Text.Length <= 1)
-                {
-                    MessageBox.Show("Длина имени должна превышать 1 символ!");
-                }
+                else if (BoxName.Text.Length <= 1) MessageBox.Show("Длина имени должна превышать 1 символ!");
             }
             else
             {

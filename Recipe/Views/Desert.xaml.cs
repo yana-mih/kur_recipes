@@ -12,8 +12,8 @@ namespace Recipe.Views;
 /// </summary>
 public partial class Desert : Window
 {
-    private RecipeContext db = new();
     private readonly DesertVM desertVm = new();
+    private RecipeContext db = new();
 
     public Desert()
     {

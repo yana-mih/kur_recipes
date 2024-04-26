@@ -12,8 +12,8 @@ namespace Recipe.Views;
 /// </summary>
 public partial class Gorahge : Window
 {
-    private RecipeContext db = new();
     private readonly HotVM Vm = new();
+    private RecipeContext db = new();
 
     public Gorahge()
     {

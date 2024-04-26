@@ -133,21 +133,26 @@
                    Grid.Row="1" />
             <Label Content="Тип приготовления" Margin="10,126,378,249" FontWeight="Bold" FontStyle="Italic"
                    FontSize="15" Grid.Row="1" />
-            <Label Content="Тип блюда" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="17,169,443,202" FontWeight="Bold" FontStyle="Italic" FontSize="15"
+            <Label Content="Тип блюда" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                   Margin="17,169,443,202" FontWeight="Bold" FontStyle="Italic" FontSize="15"
                    Grid.Row="1" />
-            <Label Content="Основной ингридиент" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="13,210,355,161" FontWeight="Bold" FontStyle="Italic"
+            <Label Content="Основной ингридиент" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                   Margin="13,210,355,161" FontWeight="Bold" FontStyle="Italic"
                    FontSize="15" Grid.Row="1" />
             <Label Content="КБЖУ" FontWeight="Bold" FontStyle="Italic" FontSize="15" Margin="17,255,472,119"
                    Grid.Row="1" />
             <TextBox Name="BoxKBZY" HorizontalAlignment="Left" Margin="203,268,0,0" TextWrapping="Wrap"
-                     VerticalAlignment="Top" Width="120" Grid.Row="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" />
+                     VerticalAlignment="Top" Width="120" Grid.Row="1" HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center" />
             <Label Content="Время приготовления" FontWeight="Bold" FontStyle="Italic" FontSize="15"
                    Margin="13,304,358,72" Grid.Row="1" />
             <TextBox Name="BoxTime" HorizontalAlignment="Left" Margin="203,314,0,0" TextWrapping="Wrap"
-                     VerticalAlignment="Top" Width="120" Grid.Row="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                     VerticalAlignment="Top" Width="120" Grid.Row="1" HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center" />
 
             <TextBox Name="BoxNameRecipe" HorizontalAlignment="Left" Margin="203,0,0,0" TextWrapping="Wrap"
-                     VerticalAlignment="Center" Width="120" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                     VerticalAlignment="Center" Width="120" HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center" />
             <ComboBox Name="BoxPreparationType" HorizontalAlignment="Left" Margin="203,133,0,0" Grid.Row="1"
                       VerticalAlignment="Top" Width="120" />
             <ComboBox Name="BoxMajorIngr" HorizontalAlignment="Left" Margin="203,221,0,0" Grid.Row="1"
@@ -177,12 +182,15 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Label Content="Описание блюда" Margin="13,143,401,378" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.RowSpan="2" />
-            <TextBox Name="BoxDescryption" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="203,9,0,0" TextWrapping="Wrap"
+            <Label Content="Описание блюда" Margin="13,143,401,378" FontWeight="Bold" FontStyle="Italic" FontSize="15"
+                   Grid.RowSpan="2" />
+            <TextBox Name="BoxDescryption" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left" Margin="203,9,0,0" TextWrapping="Wrap"
                      VerticalAlignment="Top" Width="120" Grid.Row="1" />
             <Label Content="Ингредиенты блюда" Margin="11,33,367,342" FontWeight="Bold" FontStyle="Italic"
                    FontSize="15" Grid.Row="1" />
-            <TextBox HorizontalAlignment="Left" Name="BoxIngredients" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="203,46,0,0" TextWrapping="Wrap"
+            <TextBox HorizontalAlignment="Left" Name="BoxIngredients" HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center" Margin="203,46,0,0" TextWrapping="Wrap"
                      VerticalAlignment="Top" Width="120" Grid.Row="1" />
             <Grid.RowDefinitions>
                 <RowDefinition Height="97*" />

@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using Recipe.Models;
 
 namespace Recipe.Views;
@@ -8,13 +7,15 @@ namespace Recipe.Views;
 public partial class Voiti : Window
 {
     private readonly RecipeContext db = new();
-    public TextBox TextBoxLogin { get; set; }
 
-    public PasswordBox TextBoxPassword { get; set; }
     public Voiti()
     {
         InitializeComponent();
     }
+
+    public TextBox TextBoxLogin { get; set; }
+
+    public PasswordBox TextBoxPassword { get; set; }
 
     private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
     {
@@ -146,6 +147,5 @@ public partial class Voiti : Window
         {
             MessageBox.Show("Все поля должны быть заполнены!");
         }
-        
     }
 }

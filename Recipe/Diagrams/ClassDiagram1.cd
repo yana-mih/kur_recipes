@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Recipe.VM.BaseRecipeVM" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAMBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\BaseRecipeVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.DesertVM" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\DesertVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.HotVM" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\HotVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.SaladsVM" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\SaladsVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.SoupVM" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\SoupVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.SousesVM" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\SousesVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.VipechkaVM" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\VipechkaVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.VM.ZakuskiVM" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VM\ZakuskiVM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.Views.Desert" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEQAAAgAQAAAhAAAAIAAEBAAAAAAAAACEA=</HashCode>
+      <FileName>Views\Desert.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Dobavlenie" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAQAAECEwAAAgAAAAAhAQABIAAEBAAAAAABAAAEA=</HashCode>
+      <FileName>Views\Dobavlenie.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.EditProfile" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQEAAAAABAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\EditProfile.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Gorahge" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEQAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Gorahge.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEwAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Profile" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAEDEAAAAgAAAAAxAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Profile.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Profile2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAECEAAAAgAABAAhAAAAIAAEBAAAAAAAgAAEA=</HashCode>
+      <FileName>Views\Profile2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Recipes" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAQAAACECEQAAAgAAAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Recipes.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Recipes2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEwAAEgAQAAAhAAAAIAAEBAAAAgAAAAAEA=</HashCode>
+      <FileName>Views\Recipes2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Registracia" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAECEQAQAgAAAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Registracia.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Salat" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEAAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Salat.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.SelectedRecipe" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAECEQAAAgAAAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\SelectedRecipe.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Souse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEAAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Souse.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Sup" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEgAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Sup.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Vipechka" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEgAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Vipechka.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Voiti" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAgAEDEQAAAgAAAAAhAAAAIAAEBAAAAAAAEAAEA=</HashCode>
+      <FileName>Views\Voiti.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Views.Zakuski" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAECEgAAAgAQAAAhAAAAIAAEBAAAAAAAAAAEA=</HashCode>
+      <FileName>Views\Zakuski.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Recipe.Models.Helper.RecipeHelper" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAgAAgAoAkBAAAADAAAAAAABAAEAAACMAAiQA=</HashCode>
+      <FileName>Models\Helper\RecipeHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe.Helper.ConvertByteArrayToImageConverter" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\ConvertByteArrayToImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Recipe.Helper.ImgHelper" Collapsed="true">
+    <Position X="6.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\ImgHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

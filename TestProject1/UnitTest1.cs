@@ -1,226 +1,224 @@
-using Recipe.Views;
-using Recipe;
-using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using Recipe.Views;
 
-namespace TestProject1
+namespace TestProject1;
+
+public class UnitTest1
 {
-    public class UnitTest1
+    [WpfFact]
+    public void TestButtonDeserts_OnClick()
     {
-        [WpfFact]
-        public void TestButtonDeserts_OnClick()
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonDeserts") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonDeserts") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Desert>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Desert>(Application.Current.Windows[0]);
                 }
             }
         }
+    }
 
-        [WpfFact]
-        public void TestButtonSalads_OnClick()
+    [WpfFact]
+    public void TestButtonSalads_OnClick()
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonSalads") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonSalads") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Salat>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Salat>(Application.Current.Windows[0]);
                 }
             }
         }
+    }
 
-        [WpfFact]
-        public void TestButtonZakuski_OnClick()
+    [WpfFact]
+    public void TestButtonZakuski_OnClick()
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonZakuski") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonZakuski") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Zakuski>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Zakuski>(Application.Current.Windows[0]);
                 }
             }
         }
+    }
 
-        [WpfFact]
-        public void TestButtonSup_OnClick()
+    [WpfFact]
+    public void TestButtonSup_OnClick()
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonSoups") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonSoups") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Sup>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Sup>(Application.Current.Windows[0]);
                 }
             }
         }
+    }
 
-        [WpfFact]
-        public void TestButtonSouses_OnClick()
+    [WpfFact]
+    public void TestButtonSouses_OnClick()
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonSouses") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonSouses") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Souse>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Souse>(Application.Current.Windows[0]);
                 }
             }
         }
+    }
 
-        [WpfFact]
-        public void TestButtonVipechka_OnClick()
+    [WpfFact]
+    public void TestButtonVipechka_OnClick()
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonVipechka") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonVipechka") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Vipechka>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Vipechka>(Application.Current.Windows[0]);
                 }
             }
         }
+    }
 
-        [WpfFact]
-        public void TestButtonHot_OnClick()
+    [WpfFact]
+    public void TestButtonHot_OnClick()
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.InitializeComponent();
+
+        var outerGrid = mainWindow.FindName("outerGrid") as Grid;
+
+        if (outerGrid != null)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.InitializeComponent();
+            var innerGrid = outerGrid.FindName("currentGrid") as Grid;
 
-            var outerGrid = mainWindow.FindName("outerGrid") as Grid;
-
-            if (outerGrid != null)
+            if (innerGrid != null)
             {
-                var innerGrid = outerGrid.FindName("currentGrid") as Grid;
+                var button = mainWindow.FindName("ButtonHot") as Button;
 
-                if (innerGrid != null)
+                Assert.NotNull(button);
+
+                if (button != null)
                 {
-                    var button = mainWindow.FindName("ButtonHot") as Button;
+                    var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
 
-                    Assert.NotNull(button);
+                    button.RaiseEvent(eventArgs);
 
-                    if (button != null)
-                    {
-                        var eventArgs = new RoutedEventArgs(ButtonBase.ClickEvent);
-
-                        button.RaiseEvent(eventArgs);
-
-                        Assert.Single(Application.Current.Windows);
-                        Assert.IsType<Gorahge>(Application.Current.Windows[0]);
-                    }
+                    Assert.Single(Application.Current.Windows);
+                    Assert.IsType<Gorahge>(Application.Current.Windows[0]);
                 }
             }
         }
