@@ -129,9 +129,9 @@
         </Grid>
 
 
-        <Grid Grid.Row="1" Margin="161,10,161,10">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,-5,10">
-                <StackPanel Orientation="Vertical" Background="Transparent" Margin="5,5,5,140" Width="auto"
+        <Grid Grid.Row="1" Margin="161,10,126,10">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,-55,10">
+                <StackPanel Orientation="Vertical" Background="Transparent" Margin="5,5,5,140" Width="548"
                             Height="auto">
                     <StackPanel Orientation="Vertical" Background="Transparent" Width="auto">
                         <DockPanel Height="155">
@@ -164,12 +164,17 @@
                     </StackPanel>
                     <Grid Margin="0,0,0,0" Height="auto" Width="auto">
                         <StackPanel Margin="0,0,0,-8" Width="auto">
-                            <StackPanel Orientation="Horizontal" Margin="0,5">
-                                <TextBlock x:Name="BlockDescryption" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            <StackPanel Orientation="Vertical" Margin="0,5">
+                                <TextBlock Text="Ингредиенты: " FontWeight="Bold" FontSize="16" />
                             </StackPanel>
-
                             <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
                                 <TextBlock x:Name="BlockIngredients" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="0,5">
+                                <TextBlock Text="Описание: " FontWeight="Bold" FontSize="16" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock x:Name="BlockDescryption" FontSize="16" Height="auto" TextWrapping="Wrap" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
                                 <TextBlock Text="Автор: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left"
