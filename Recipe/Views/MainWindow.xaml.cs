@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Recipe.Models;
 using Recipe.Models.Helper;
 using Recipe.VM;
@@ -14,28 +16,27 @@ public partial class MainWindow : Window
 {
     private RecipeContext db = new();
     private readonly BaseRecipeVM vm = new();
-
     public MainWindow()
     {
         InitializeComponent();
         DataContext = vm;
+    
+    /* byte[] byteArray = ImgHelper.ImageToByteArray(@"C:\Users\capit\Desktop\DSWM\Recipe\Image\грибной_суп.jpg");
 
-        /* byte[] byteArray = ImgHelper.ImageToByteArray(@"C:\Users\capit\Desktop\DSWM\Recipe\Image\грибной_суп.jpg");
+     Image image = new Image()
+     {
+         Image1 = byteArray
+     };
+     db.Images.Add(image);
+     db.SaveChanges();
 
-         Image image = new Image()
-         {
-             Image1 = byteArray
-         };
-         db.Images.Add(image);
-         db.SaveChanges();
+     var savedImage = db.Images.Where(i => i.Image1 == byteArray).FirstOrDefault();
 
-         var savedImage = db.Images.Where(i => i.Image1 == byteArray).FirstOrDefault();
+     var product = db.Recipes.Where(p => p.NameRecipe == "Грибной суп").FirstOrDefault();
+     product.ImageId = savedImage.ImageId;
 
-         var product = db.Recipes.Where(p => p.NameRecipe == "Грибной суп").FirstOrDefault();
-         product.ImageId = savedImage.ImageId;
-
-         db.SaveChanges();*/
-    }
+     db.SaveChanges();*/
+}
 
     private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
     {
@@ -88,7 +89,7 @@ public partial class MainWindow : Window
         Close();
     }
 
-    private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
+    public void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
     {
         var deserts = new Desert();
         deserts.Show();
@@ -102,8 +103,8 @@ public partial class MainWindow : Window
         Close();
     }
 
-
-    private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    [STAThread]
+    public void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
     {
         if (App.CurrentUser != null)
         {

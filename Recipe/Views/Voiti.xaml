@@ -10,7 +10,7 @@
     <Window.Resources>
     </Window.Resources>
 
-    <Grid Background="Cornsilk">
+    <Grid Background="Cornsilk" Name="outerGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
@@ -69,7 +69,7 @@
 
 
         <!-- Левая полоса для бокового меню -->
-        <Grid Background="Beige" Margin="0,75,684,5" Grid.RowSpan="2">
+        <Grid Background="Beige" Margin="0,75,684,5" Grid.RowSpan="2" Name="currentGrid">
             <StackPanel>
                 <Button Name="ButtonZakuski" Click="ButtonZakuski_OnClick" Content="Закуски" Width="100" Height="30"
                         Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">

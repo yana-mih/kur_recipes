@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Recipe.Models;
 
@@ -7,7 +8,9 @@ namespace Recipe.Views;
 public partial class Voiti : Window
 {
     private readonly RecipeContext db = new();
+    public TextBox TextBoxLogin { get; set; }
 
+    public PasswordBox TextBoxPassword { get; set; }
     public Voiti()
     {
         InitializeComponent();
@@ -106,23 +109,26 @@ public partial class Voiti : Window
         }
     }
 
-    private void ButtonSignIn_OnClick(object sender, RoutedEventArgs e)
+    public void ButtonSignIn_OnClick(object sender, RoutedEventArgs e)
     {
-        if (!string.IsNullOrEmpty(TextBoxUserLogin.Text) &&
-            !string.IsNullOrEmpty(TextBoxUserPassword.Password))
+        TextBoxLogin = TextBoxUserLogin;
+        TextBoxPassword = FindName("TextBoxUserPassword") as PasswordBox;
+
+        if (!string.IsNullOrEmpty(TextBoxLogin.Text) &&
+            !string.IsNullOrEmpty(TextBoxPassword.Password))
         {
-            if (TextBoxUserLogin.Text.Length <= 4)
+            if (TextBoxLogin.Text.Length <= 4)
             {
                 MessageBox.Show("Длина логина должна превышать 4 символа!");
             }
-            else if (TextBoxUserPassword.Password.Length <= 4)
+            else if (TextBoxPassword.Password.Length <= 4)
             {
                 MessageBox.Show("Длина пароля должна превышать 4 символа!");
             }
             else
             {
-                var currUser = db.People.Where(p => p.Password == TextBoxUserPassword.Password.Trim()
-                                                    && p.Login == TextBoxUserLogin.Text.Trim()).FirstOrDefault();
+                var currUser = db.People.Where(p => p.Password == TextBoxPassword.Password.Trim()
+                                                    && p.Login == TextBoxLogin.Text.Trim()).FirstOrDefault();
                 if (currUser != null)
                 {
                     App.CurrentUser = currUser;
