@@ -111,7 +111,19 @@ public partial class Recipes : Window
 
     private void ButtonSearch_OnClick(object sender, RoutedEventArgs e)
     {
-        var recipes = db.Recipes.AsQueryable();
+        if (string.IsNullOrEmpty(TextBoxRecipeName.Text)
+            && (ComboBoxCategoryName.SelectedValue == null || string.IsNullOrEmpty(ComboBoxCategoryName.SelectedValue.ToString()))
+            && (ComboBoxKitchenName.SelectedValue == null || string.IsNullOrEmpty(ComboBoxKitchenName.SelectedValue.ToString()))
+            && (ComboBoxMajorIngredientName.SelectedValue == null || string.IsNullOrEmpty(ComboBoxMajorIngredientName.SelectedValue.ToString()))
+            && (ComboBoxTypeCookingName.SelectedValue == null || string.IsNullOrEmpty(ComboBoxTypeCookingName.SelectedValue.ToString()))
+            && (ComboBoxTypeFood.SelectedValue == null || string.IsNullOrEmpty(ComboBoxTypeFood.SelectedValue.ToString())))
+        {
+            MessageBox.Show("Хотя бы одно из полей должно быть заполнено!");
+        }
+        else
+        {
+
+            var recipes = db.Recipes.AsQueryable();
 
         if (!string.IsNullOrEmpty(TextBoxRecipeName.Text))
             recipes = recipes.Where(r => r.NameRecipe.ToLower().Contains(TextBoxRecipeName.Text.Trim().ToLower()));
@@ -153,6 +165,7 @@ public partial class Recipes : Window
         recipes2.SearchBigResult(filteredRecipes);
         recipes2.Show();
         Close();
+        }
     }
 
 
