@@ -3,50 +3,57 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Recipe"
         mc:Ignorable="d"
         Loaded="Recipes_OnLoaded"
         Title="Recipes" Height="500" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!-- Верхняя часть страницы с тремя кнопками -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="White" Margin="0,0,0,10">
-            <Image Grid.Column="0" x:Name="mainImage" Width="70" Height="50" Margin="0,0,0,0">
+            <Image x:Name="mainImage" Width="70" Height="50" Margin="0,0,0,0">
                 <Image.Source>
-                    <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\cooking.png" DestinationFormat="Gray32Float" />
+                    <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\cooking.png"
+                                           DestinationFormat="Gray32Float" />
                 </Image.Source>
             </Image>
-            <Label Content="Yummy Eats" Margin="0,25,0,20" FontWeight="Bold" FontStyle="Italic"/>
-            <Button Name="ButtonToRecipes" Click="ButtonToRecipes_OnClick" Content="Рецепты" Margin="15,15,10,20" Background="Beige" Padding="10" Width="100" Height="40" BorderThickness="3" FontStyle="Italic" FontWeight="Bold">
+            <Label Content="Yummy Eats" Margin="0,25,0,20" FontWeight="Bold" FontStyle="Italic" />
+            <Button Name="ButtonToRecipes" Click="ButtonToRecipes_OnClick" Content="Рецепты" Margin="15,15,10,20"
+                    Background="Beige" Padding="10" Width="100" Height="40" BorderThickness="2" FontStyle="Italic"
+                    FontWeight="Bold">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Name="ButtonToGeneral" Click="ButtonToGeneral_OnClick" Content="Главное" Margin="90,15,15,20" Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" >
+            <Button Name="ButtonToGeneral" Click="ButtonToGeneral_OnClick" Content="Главное" Margin="90,15,15,20"
+                    Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Name="ButtonAddNewRecipe" Click="ButtonAddNewRecipe_OnClick" Content="Добавить свой рецепт" Margin="70,15,20,20" Background="Beige" Padding="10" Width="166" Height="40" FontStyle="Italic" FontWeight="Bold">
+            <Button Name="ButtonAddNewRecipe" Click="ButtonAddNewRecipe_OnClick" Content="Добавить свой рецепт"
+                    Margin="70,15,20,20" Background="Beige" Padding="10" Width="166" Height="40" FontStyle="Italic"
+                    FontWeight="Bold">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button BorderThickness="0" Background="Transparent" Name="ButtonToProfile" Click="ButtonToProfile_OnClick" Width="50" Height="50" Margin="20,0,0,0">
-                <Image x:Name="mainImage1" Width="47" Height="47" >
+            <Button BorderThickness="0" Background="Transparent" Name="ButtonToProfile" Click="ButtonToProfile_OnClick"
+                    Width="50" Height="50" Margin="20,0,0,0">
+                <Image x:Name="mainImage1" Width="47" Height="47">
                     <Image.Source>
-                        <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\avatar.png" DestinationFormat="Gray32Float" />
+                        <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\avatar.png"
+                                               DestinationFormat="Gray32Float" />
                     </Image.Source>
                 </Image>
             </Button>
@@ -55,56 +62,62 @@
         </StackPanel>
 
 
-
         <!-- Левая полоса для бокового меню -->
         <Grid Background="Beige" Margin="0,75,684,5" Grid.RowSpan="2">
             <StackPanel>
-                <Button Name="ButtonZakuski" Click="ButtonZakuski_OnClick" Content="Закуски" Width="100" Height="30" Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonZakuski" Click="ButtonZakuski_OnClick" Content="Закуски" Width="100" Height="30"
+                        Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonSalads" Click="ButtonSalads_OnClick" Content="Салаты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSalads" Click="ButtonSalads_OnClick" Content="Салаты" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonHot" Click="ButtonHot_OnClick" Content="Горячее" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonHot" Click="ButtonHot_OnClick" Content="Горячее" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonSoups" Click="ButtonSoups_OnClick" Content="Супы" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSoups" Click="ButtonSoups_OnClick" Content="Супы" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonVipechka" Click="ButtonVipechka_OnClick" Content="Выпечка" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonVipechka" Click="ButtonVipechka_OnClick" Content="Выпечка" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonDeserts" Click="ButtonDeserts_OnClick" Content="Десерты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonDeserts" Click="ButtonDeserts_OnClick" Content="Десерты" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonSouses" Click="ButtonSouses_OnClick" Content="Соусы" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSouses" Click="ButtonSouses_OnClick" Content="Соусы" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
@@ -113,29 +126,42 @@
 
         <!-- Основное содержимое страницы -->
         <Grid Grid.Row="1">
-            <Label Content="Поиск рецепта" Margin="330,5,310,54" FontWeight="Bold" FontStyle="Italic" FontSize="20"/>
-            <Label Content="Название рецепта" Margin="150,50,500,10" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
-            <Label Content="Категория блюда" Margin="150,0,500,224" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <Label Content="Кухня" Margin="150,37,500,185" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <Label Content="Тип приготовления" Margin="150,76,484,146" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <Label Content="Тип блюда" Margin="152,115,498,108" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <Label Content="Основной ингридиент" Margin="150,153,466,70" FontWeight="Bold" FontStyle="Italic" FontSize="15" Grid.Row="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="353,57,0,0" TextWrapping="Wrap" Name="TextBoxRecipeName" VerticalAlignment="Top" Width="120"/>
-            <ComboBox Name="ComboBoxCategoryName" HorizontalAlignment="Left" Margin="353,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" />
-            <ComboBox Name="ComboBoxKitchenName" HorizontalAlignment="Left" Margin="242,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox Name="ComboBoxTypeCookingName" HorizontalAlignment="Center" Margin="0,82,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox Name="ComboBoxTypeFood" HorizontalAlignment="Left" Margin="262,120,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <ComboBox Name="ComboBoxMajorIngredientName" HorizontalAlignment="Left" Margin="353,158,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
-            <Button Name="ButtonSearch" Click="ButtonSearch_OnClick" Content="Поиск" Margin="363,206,337,10" Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" Grid.Row="1" >
+            <Label Content="Поиск рецепта" Margin="330,5,310,54" FontWeight="Bold" FontStyle="Italic" FontSize="20" />
+            <Label Content="Название рецепта" Margin="150,50,500,10" FontWeight="Bold" FontStyle="Italic" FontSize="15" />
+            <Label Content="Категория блюда" Margin="150,0,500,224" FontWeight="Bold" FontStyle="Italic" FontSize="15"
+                   Grid.Row="1" />
+            <Label Content="Кухня" Margin="150,37,500,185" FontWeight="Bold" FontStyle="Italic" FontSize="15"
+                   Grid.Row="1" />
+            <Label Content="Тип приготовления" Margin="150,76,484,146" FontWeight="Bold" FontStyle="Italic"
+                   FontSize="15" Grid.Row="1" />
+            <Label Content="Тип блюда" Margin="152,115,498,108" FontWeight="Bold" FontStyle="Italic" FontSize="15"
+                   Grid.Row="1" />
+            <Label Content="Основной ингридиент" Margin="150,153,466,70" FontWeight="Bold" FontStyle="Italic"
+                   FontSize="15" Grid.Row="1" />
+            <TextBox HorizontalAlignment="Left" Margin="353,57,0,0" TextWrapping="Wrap" Name="TextBoxRecipeName"
+                     VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="ComboBoxCategoryName" HorizontalAlignment="Left" Margin="353,5,0,0" Grid.Row="1"
+                      VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="ComboBoxKitchenName" HorizontalAlignment="Left" Margin="242,38,0,0" Grid.Row="1"
+                      VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="ComboBoxTypeCookingName" HorizontalAlignment="Center" Margin="0,82,0,0" Grid.Row="1"
+                      VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="ComboBoxTypeFood" HorizontalAlignment="Left" Margin="262,120,0,0" Grid.Row="1"
+                      VerticalAlignment="Top" Width="120" />
+            <ComboBox Name="ComboBoxMajorIngredientName" HorizontalAlignment="Left" Margin="353,158,0,0" Grid.Row="1"
+                      VerticalAlignment="Top" Width="120" />
+            <Button Name="ButtonSearch" Click="ButtonSearch_OnClick" Content="Поиск" Margin="363,206,337,10"
+                    Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold"
+                    Grid.Row="1">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
             <Grid.RowDefinitions>
-                <RowDefinition Height="97*"/>
-                <RowDefinition Height="269*"/>
+                <RowDefinition Height="97*" />
+                <RowDefinition Height="269*" />
 
             </Grid.RowDefinitions>
         </Grid>

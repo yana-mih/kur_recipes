@@ -2,138 +2,144 @@
 using System.Windows.Media;
 using Recipe.Models;
 
-namespace Recipe.Views
+namespace Recipe.Views;
+
+public partial class Voiti : Window
 {
-    public partial class Voiti : Window
+    private readonly RecipeContext db = new();
+
+    public Voiti()
     {
-        private RecipeContext db = new RecipeContext();
-        public Voiti()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
-        {
-            Zakuski zakuski = new Zakuski();
-            zakuski.Show();
-            this.Close();
-        }
+    private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
+    {
+        var zakuski = new Zakuski();
+        zakuski.Show();
+        Close();
+    }
 
-        private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
-        {
-            Salat salat = new Salat();
-            salat.Show();
-            this.Close();
-        }
+    private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
+    {
+        var salat = new Salat();
+        salat.Show();
+        Close();
+    }
 
-        private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
-        {
-            Gorahge gorahge = new Gorahge();
-            gorahge.Show();
-            this.Close();
-        }
+    private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
+    {
+        var gorahge = new Gorahge();
+        gorahge.Show();
+        Close();
+    }
 
-        private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
-        {
-            Sup sup = new Sup();
-            sup.Show();
-            this.Close();
-        }
+    private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
+    {
+        var sup = new Sup();
+        sup.Show();
+        Close();
+    }
 
-        private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
-        {
-            Vipechka vipechka = new Vipechka();
-            vipechka.Show();
-            this.Close();
-        }
+    private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
+    {
+        var vipechka = new Vipechka();
+        vipechka.Show();
+        Close();
+    }
 
-        private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
-        {
-            Desert deserts = new Desert();
-            deserts.Show();
-            this.Close();
-        }
+    private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
+    {
+        var deserts = new Desert();
+        deserts.Show();
+        Close();
+    }
 
-        private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
-        {
-            Souse us = new Souse();
-            us.Show();
-            this.Close();
-        }
+    private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
+    {
+        var us = new Souse();
+        us.Show();
+        Close();
+    }
 
-        private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (App.CurrentUser != null)
         {
-            if (App.CurrentUser != null)
+            var profile = new Profile2();
+            profile.Show();
+            Close();
+        }
+        else
+        {
+            var profile = new Profile();
+            profile.Show();
+            Close();
+        }
+    }
+
+    private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
+    {
+        var recipes = new Recipes();
+        recipes.Show();
+        Close();
+    }
+
+    private void ButtonToGeneral_OnClick(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.Show();
+        Close();
+    }
+
+    private void ButtonAddNewRecipe_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (App.CurrentUser != null)
+        {
+            var dobavlenie = new Dobavlenie();
+            dobavlenie.Show();
+            Close();
+        }
+        else
+        {
+            MessageBox.Show("Для добавления рецепта нужно войти в профиль!");
+        }
+    }
+
+    private void ButtonSignIn_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TextBoxUserLogin.Text) &&
+            !string.IsNullOrEmpty(TextBoxUserPassword.Password))
+        {
+            if (TextBoxUserLogin.Text.Length <= 4)
             {
-                Profile2 profile = new Profile2();
-                profile.Show();
-                this.Close();
+                MessageBox.Show("Длина логина должна превышать 4 символа!");
+            }
+            else if (TextBoxUserPassword.Password.Length <= 4)
+            {
+                MessageBox.Show("Длина пароля должна превышать 4 символа!");
             }
             else
             {
-                Profile profile = new Profile();
-                profile.Show();
-                this.Close();
-            }
-        }
-        private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
-        {
-            Recipes recipes = new Recipes();
-            recipes.Show();
-            this.Close();
-        }
-
-        private void ButtonToGeneral_OnClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
-
-        private void ButtonAddNewRecipe_OnClick(object sender, RoutedEventArgs e)
-        {
-            Dobavlenie dobavlenie = new Dobavlenie();
-            dobavlenie.Show();
-            this.Close();
-        }
-
-        private void ButtonSignIn_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(TextBoxUserLogin.Text) &&
-                !string.IsNullOrEmpty(TextBoxUserPassword.Password.ToString()))
-            {
-                var currUser = db.People.Where(p => p.Password == TextBoxUserPassword.Password.ToString().Trim()
+                var currUser = db.People.Where(p => p.Password == TextBoxUserPassword.Password.Trim()
                                                     && p.Login == TextBoxUserLogin.Text.Trim()).FirstOrDefault();
                 if (currUser != null)
                 {
                     App.CurrentUser = currUser;
                     Profile2 profile = new();
                     profile.Show();
-                    this.Close();
+                    Close();
                 }
                 else
                 {
                     MessageBox.Show("Логин или пароль введен неверно!");
                 }
             }
-            else if (!string.IsNullOrEmpty(TextBoxUserLogin.Text))
-            {
-                TextBoxUserLogin.ToolTip = "Некорректный формат!";
-                TextBoxUserLogin.Background = Brushes.Red;
-            }
-            else if (!string.IsNullOrEmpty(TextBoxUserPassword.Password.ToString()))
-            {
-                TextBoxUserPassword.ToolTip = "Некорректный формат!";
-                TextBoxUserPassword.Background = Brushes.Red;
-            }
-            else
-            {
-                TextBoxUserLogin.ToolTip = "Некорректный формат!";
-                TextBoxUserLogin.Background = Brushes.Red;
-
-                TextBoxUserPassword.ToolTip = "Некорректный формат!";
-                TextBoxUserPassword.Background = Brushes.Red;
-            }
         }
+        else
+        {
+            MessageBox.Show("Все поля должны быть заполнены!");
+        }
+        
     }
 }

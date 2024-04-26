@@ -3,55 +3,62 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Recipe.Views"
         mc:Ignorable="d"
         Title="SelectedRecipe" Height="520" Width="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         xmlns:helper="clr-namespace:Recipe.Helper">
 
     <Window.Resources>
-        <helper:ConvertByteArrayToImageConverter x:Key="ConvertByteArrayToImageConverter"/>
+        <helper:ConvertByteArrayToImageConverter x:Key="ConvertByteArrayToImageConverter" />
     </Window.Resources>
-    <Grid Background="Cornsilk" >
+    <Grid Background="Cornsilk">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!-- Верхняя часть страницы с тремя кнопками -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="White" Margin="0,0,0,10">
-            <Image Grid.Column="0" x:Name="mainImage" Width="70" Height="50" Margin="0,0,0,0">
+            <Image x:Name="mainImage" Width="70" Height="50" Margin="0,0,0,0">
                 <Image.Source>
-                    <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\cooking.png" DestinationFormat="Gray32Float" />
+                    <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\cooking.png"
+                                           DestinationFormat="Gray32Float" />
                 </Image.Source>
             </Image>
-            <Label Content="Yummy Eats" Margin="0,25,0,20" FontWeight="Bold" FontStyle="Italic"/>
+            <Label Content="Yummy Eats" Margin="0,25,0,20" FontWeight="Bold" FontStyle="Italic" />
 
-            <Button Name="ButtonToRecipes" Click="ButtonToRecipes_OnClick" Content="Рецепты" Margin="15,15,10,20" Background="Beige" Padding="10" Width="100" Height="40"  FontStyle="Italic" FontWeight="Bold">
+            <Button Name="ButtonToRecipes" Click="ButtonToRecipes_OnClick" Content="Рецепты" Margin="15,15,10,20"
+                    Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Name="ButtonToGeneral" Click="ButtonToGeneral_OnClick" Content="Главное" Margin="90,15,15,20" Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold" BorderThickness="1" >
+            <Button Name="ButtonToGeneral" Click="ButtonToGeneral_OnClick" Content="Главное" Margin="90,15,15,20"
+                    Background="Beige" Padding="10" Width="100" Height="40" FontStyle="Italic" FontWeight="Bold"
+                    BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Name="ButtonAddNewRecipe" Click="ButtonAddNewRecipe_OnClick" Content="Добавить свой рецепт" Margin="70,15,20,20" Background="Beige" Padding="10" Width="166" Height="40" FontStyle="Italic" FontWeight="Bold">
+            <Button Name="ButtonAddNewRecipe" Click="ButtonAddNewRecipe_OnClick" Content="Добавить свой рецепт"
+                    Margin="70,15,20,20" Background="Beige" Padding="10" Width="166" Height="40" FontStyle="Italic"
+                    FontWeight="Bold">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="CornerRadius" Value="10" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button BorderThickness="0" Background="Transparent" Name="ButtonToProfile" Click="ButtonToProfile_OnClick" Width="50" Height="50" Margin="20,0,0,0">
-                <Image x:Name="mainImage1" Width="47" Height="47" >
+            <Button BorderThickness="0" Background="Transparent" Name="ButtonToProfile" Click="ButtonToProfile_OnClick"
+                    Width="50" Height="50" Margin="20,0,0,0">
+                <Image x:Name="mainImage1" Width="47" Height="47">
                     <Image.Source>
-                        <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\avatar.png" DestinationFormat="Gray32Float" />
+                        <FormatConvertedBitmap Source="C:\Users\capit\Desktop\DSWM\Recipe\Image\avatar.png"
+                                               DestinationFormat="Gray32Float" />
                     </Image.Source>
                 </Image>
             </Button>
@@ -62,52 +69,59 @@
         <!-- Левая полоса для бокового меню -->
         <Grid Background="Beige" Margin="0,75,684,5" Grid.RowSpan="2">
             <StackPanel>
-                <Button Name="ButtonZakuski" Click="ButtonZakuski_OnClick" Content="Закуски" Width="100" Height="30" Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonZakuski" Click="ButtonZakuski_OnClick" Content="Закуски" Width="100" Height="30"
+                        Margin="0,20,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonSalads" Click="ButtonSalads_OnClick" Content="Салаты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSalads" Click="ButtonSalads_OnClick" Content="Салаты" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonHot" Click="ButtonHot_OnClick" Content="Горячее" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonHot" Click="ButtonHot_OnClick" Content="Горячее" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonSoups" Click="ButtonSoups_OnClick" Content="Супы" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSoups" Click="ButtonSoups_OnClick" Content="Супы" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonVipechka" Click="ButtonVipechka_OnClick" Content="Выпечка" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonVipechka" Click="ButtonVipechka_OnClick" Content="Выпечка" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonDeserts" Click="ButtonDeserts_OnClick" Content="Десерты" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonDeserts" Click="ButtonDeserts_OnClick" Content="Десерты" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Name="ButtonSouses" Click="ButtonSouses_OnClick" Content="Соусы" Width="100" Height="30" Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
+                <Button Name="ButtonSouses" Click="ButtonSouses_OnClick" Content="Соусы" Width="100" Height="30"
+                        Margin="0,0,0,20" Background="White" FontStyle="Italic" FontWeight="Bold">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="CornerRadius" Value="10" />
                         </Style>
                     </Button.Resources>
                 </Button>
@@ -117,26 +131,32 @@
 
         <Grid Grid.Row="1" Margin="161,10,161,10">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,0,-5,10">
-                <StackPanel Orientation="Vertical" Background="Transparent" Margin="5,5,5,140" Width="auto" Height="auto">
+                <StackPanel Orientation="Vertical" Background="Transparent" Margin="5,5,5,140" Width="auto"
+                            Height="auto">
                     <StackPanel Orientation="Vertical" Background="Transparent" Width="auto">
                         <DockPanel Height="155">
                             <Border Width="150" Height="150" BorderBrush="Black" BorderThickness="1" Margin="0,0,25,0">
-                                <Image Name="SelectedImage" Width="150" Height="150" Stretch="Fill" Source="{Binding ImageBytes, Converter={StaticResource ConvertByteArrayToImageConverter}}"/>
+                                <Image Name="SelectedImage" Width="150" Height="150" Stretch="Fill"
+                                       Source="{Binding ImageBytes, Converter={StaticResource ConvertByteArrayToImageConverter}}" />
                             </Border>
                             <Grid Margin="0,0,0,0">
                                 <StackPanel>
                                     <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
-                                        <TextBlock Text="Название: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left" Margin="0,0,10,0"/>
-                                        <TextBlock x:Name="BlockNameRecipe" DockPanel.Dock="Left" FontSize="16" Width="auto"/>
+                                        <TextBlock Text="Название: " FontWeight="Bold" FontSize="16"
+                                                   DockPanel.Dock="Left" Margin="0,0,10,0" />
+                                        <TextBlock x:Name="BlockNameRecipe" DockPanel.Dock="Left" FontSize="16"
+                                                   Width="auto" />
                                     </StackPanel>
 
                                     <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
-                                        <TextBlock Text="КБЖУ: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left" Margin="0,0,10,0"/>
-                                        <TextBlock x:Name="BlockKBZY" DockPanel.Dock="Left" FontSize="16" Width="auto"/>
+                                        <TextBlock Text="КБЖУ: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left"
+                                                   Margin="0,0,10,0" />
+                                        <TextBlock x:Name="BlockKBZY" DockPanel.Dock="Left" FontSize="16" Width="auto" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
-                                        <TextBlock Text="Время приготовления: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left" Margin="0,0,10,0"/>
-                                        <TextBlock x:Name="BlockTime" DockPanel.Dock="Left" FontSize="16" Width="150"/>
+                                        <TextBlock Text="Время приготовления: " FontWeight="Bold" FontSize="16"
+                                                   DockPanel.Dock="Left" Margin="0,0,10,0" />
+                                        <TextBlock x:Name="BlockTime" DockPanel.Dock="Left" FontSize="16" Width="150" />
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
@@ -144,40 +164,41 @@
                     </StackPanel>
                     <Grid Margin="0,0,0,0" Height="auto" Width="auto">
                         <StackPanel Margin="0,0,0,-8" Width="auto">
-                                <StackPanel Orientation="Horizontal" Margin="0,5">
-                                    <TextBlock x:Name="BlockDescryption" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock x:Name="BlockDescryption" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
-                                    <TextBlock x:Name="BlockIngredients" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
+                                <TextBlock x:Name="BlockIngredients" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,5" Width="auto">
-                                    <TextBlock Text="Автор: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left" Margin="0,0,10,0"/>
-                                    <TextBlock x:Name="BlockAuthor" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
+                                <TextBlock Text="Автор: " FontWeight="Bold" FontSize="16" DockPanel.Dock="Left"
+                                           Margin="0,0,10,0" />
+                                <TextBlock x:Name="BlockAuthor" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Margin="0,5 " Width="auto">
-                                    <TextBlock Text="Кухня: " FontWeight="Bold" FontSize="16"/>
-                                    <TextBlock x:Name="BlockKitchen" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal" Margin="0,5">
-                                    <TextBlock Text="Тип: " FontWeight="Bold" FontSize="16"/>
-                                    <TextBlock x:Name="BlockType" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal" Margin="0,5">
-                                    <TextBlock Text="Тип 2: " FontWeight="Bold" FontSize="16"/>
-                                    <TextBlock x:Name="BlockType2" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal" Margin="0,5">
-                                    <TextBlock Text="Основной ингредиент: " FontWeight="Bold" FontSize="16"/>
-                                    <TextBlock x:Name="BlockMajorIngr" FontSize="16" Height="auto" TextWrapping="Wrap"/>
-                                </StackPanel>
+                                <TextBlock Text="Кухня: " FontWeight="Bold" FontSize="16" />
+                                <TextBlock x:Name="BlockKitchen" FontSize="16" Height="auto" TextWrapping="Wrap" />
                             </StackPanel>
-                        </Grid>
-                    </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock Text="Тип: " FontWeight="Bold" FontSize="16" />
+                                <TextBlock x:Name="BlockType" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock Text="Тип 2: " FontWeight="Bold" FontSize="16" />
+                                <TextBlock x:Name="BlockType2" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock Text="Основной ингредиент: " FontWeight="Bold" FontSize="16" />
+                                <TextBlock x:Name="BlockMajorIngr" FontSize="16" Height="auto" TextWrapping="Wrap" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
 

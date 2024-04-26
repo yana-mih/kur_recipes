@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Recipe.Models;
 
-namespace Recipe.Models
+public class TypeOfDish
 {
-    public partial class TypeOfDish
+    public TypeOfDish()
     {
-        public TypeOfDish()
-        {
-            Recipes = new HashSet<Recipe>();
-        }
-        public int TypeOfDish1 { get; set; }
-        public string Name { get; set; } = null!;
-
-        public virtual ICollection<Recipe> Recipes { get; set; }
+        Recipes = new HashSet<Recipe>();
     }
+
+    public int TypeOfDish1 { get; set; }
+    public string Name { get; set; } = null!;
+
+    public virtual ICollection<Recipe> Recipes { get; set; }
 }

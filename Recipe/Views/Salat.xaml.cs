@@ -1,144 +1,142 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Recipe.Models.Helper;
 using Recipe.VM;
 
-namespace Recipe.Views
+namespace Recipe.Views;
+
+/// <summary>
+///     Логика взаимодействия для Salat.xaml
+/// </summary>
+public partial class Salat : Window
 {
-    /// <summary>
-    /// Логика взаимодействия для Salat.xaml
-    /// </summary>
-    public partial class Salat : Window
+    private readonly SaladsVM Vm = new();
+
+    public Salat()
     {
-        private SaladsVM Vm = new SaladsVM();
-        public Salat()
-        {
-            InitializeComponent();
-            DataContext = Vm;
-        }
+        InitializeComponent();
+        DataContext = Vm;
+    }
 
-        private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
+    private void SearchBox_OnKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+            if (!string.IsNullOrEmpty(SearchBox.Text))
             {
-                if (!string.IsNullOrEmpty(SearchBox.Text))
-                {
-                    Recipes2 recipes = new Recipes2();
-                    recipes.Show();
-                    recipes.SearchResult(SearchBox.Text.Trim().ToLower());
-                    this.Close();
-                }
+                var recipes = new Recipes2();
+                recipes.Show();
+                recipes.SearchResult(SearchBox.Text.Trim().ToLower());
+                Close();
+            }
+    }
+
+    private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
+    {
+        var stackPanel = sender as StackPanel;
+        if (stackPanel != null)
+        {
+            var selectedRecipe = stackPanel.DataContext as RecipeHelper;
+            if (selectedRecipe != null)
+            {
+                var selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
+                selectedRecipeWindow.Show();
+                Close();
             }
         }
-        private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            StackPanel stackPanel = sender as StackPanel;
-            if (stackPanel != null)
-            {
-                RecipeHelper selectedRecipe = stackPanel.DataContext as RecipeHelper;
-                if (selectedRecipe != null)
-                {
-                    SelectedRecipe selectedRecipeWindow = new SelectedRecipe(selectedRecipe);
-                    selectedRecipeWindow.Show();
-                    this.Close();
-                }
-            }
-        }
-        private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
-        {
-            Zakuski zakuski = new Zakuski();
-            zakuski.Show();
-            this.Close();
-        }
+    }
 
-        private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
-        {
-            Salat salat = new Salat();
-            salat.Show();
-            this.Close();
-        }
+    private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
+    {
+        var zakuski = new Zakuski();
+        zakuski.Show();
+        Close();
+    }
 
-        private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
-        {
-            Gorahge gorahge = new Gorahge();
-            gorahge.Show();
-            this.Close();
-        }
+    private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
+    {
+        var salat = new Salat();
+        salat.Show();
+        Close();
+    }
 
-        private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
-        {
-            Sup sup = new Sup();
-            sup.Show();
-            this.Close();
-        }
+    private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
+    {
+        var gorahge = new Gorahge();
+        gorahge.Show();
+        Close();
+    }
 
-        private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
-        {
-            Vipechka vipechka = new Vipechka();
-            vipechka.Show();
-            this.Close();
-        }
+    private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
+    {
+        var sup = new Sup();
+        sup.Show();
+        Close();
+    }
 
-        private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
-        {
-            Desert deserts = new Desert();
-            deserts.Show();
-            this.Close();
-        }
+    private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
+    {
+        var vipechka = new Vipechka();
+        vipechka.Show();
+        Close();
+    }
 
-        private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
-        {
-            Souse us = new Souse();
-            us.Show();
-            this.Close();
-        }
+    private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
+    {
+        var deserts = new Desert();
+        deserts.Show();
+        Close();
+    }
+
+    private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
+    {
+        var us = new Souse();
+        us.Show();
+        Close();
+    }
 
 
-        private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (App.CurrentUser != null)
         {
-            if (App.CurrentUser != null)
-            {
-                Profile2 profile = new Profile2();
-                profile.Show();
-                this.Close();
-            }
-            else
-            {
-                Profile profile = new Profile();
-                profile.Show();
-                this.Close();
-            }
+            var profile = new Profile2();
+            profile.Show();
+            Close();
         }
-        private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
+        else
         {
-            Recipes recipes = new Recipes();
-            recipes.Show();
-            this.Close();
+            var profile = new Profile();
+            profile.Show();
+            Close();
         }
+    }
 
-        private void ButtonToGeneral_OnClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
+    private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
+    {
+        var recipes = new Recipes();
+        recipes.Show();
+        Close();
+    }
 
-        private void ButtonAddNewRecipe_OnClick(object sender, RoutedEventArgs e)
+    private void ButtonToGeneral_OnClick(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.Show();
+        Close();
+    }
+
+    private void ButtonAddNewRecipe_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (App.CurrentUser != null)
         {
-            Dobavlenie dobavlenie = new Dobavlenie();
+            var dobavlenie = new Dobavlenie();
             dobavlenie.Show();
-            this.Close();
+            Close();
+        }
+        else
+        {
+            MessageBox.Show("Для добавления рецепта нужно войти в профиль!");
         }
     }
 }

@@ -1,157 +1,193 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Recipe.Models;
 
-namespace Recipe.Views
+namespace Recipe.Views;
+
+/// <summary>
+///     Логика взаимодействия для Registracia.xaml
+/// </summary>
+public partial class Registracia : Window
 {
-    /// <summary>
-    /// Логика взаимодействия для Registracia.xaml
-    /// </summary>
-    public partial class Registracia : Window
+    private readonly RecipeContext db = new();
+
+    public Registracia()
     {
-        private RecipeContext db = new RecipeContext();
-        public Registracia()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
-        {
-            Zakuski zakuski = new Zakuski();
-            zakuski.Show();
-            this.Close();
-        }
+    private void ButtonZakuski_OnClick(object sender, RoutedEventArgs e)
+    {
+        var zakuski = new Zakuski();
+        zakuski.Show();
+        Close();
+    }
 
-        private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
-        {
-            Salat salat = new Salat();
-            salat.Show();
-            this.Close();
-        }
+    private void ButtonSalads_OnClick(object sender, RoutedEventArgs e)
+    {
+        var salat = new Salat();
+        salat.Show();
+        Close();
+    }
 
-        private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
-        {
-            Gorahge gorahge = new Gorahge();
-            gorahge.Show();
-            this.Close();
-        }
+    private void ButtonHot_OnClick(object sender, RoutedEventArgs e)
+    {
+        var gorahge = new Gorahge();
+        gorahge.Show();
+        Close();
+    }
 
-        private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
-        {
-            Sup sup = new Sup();
-            sup.Show();
-            this.Close();
-        }
+    private void ButtonSoups_OnClick(object sender, RoutedEventArgs e)
+    {
+        var sup = new Sup();
+        sup.Show();
+        Close();
+    }
 
-        private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
-        {
-            Vipechka vipechka = new Vipechka();
-            vipechka.Show();
-            this.Close();
-        }
+    private void ButtonVipechka_OnClick(object sender, RoutedEventArgs e)
+    {
+        var vipechka = new Vipechka();
+        vipechka.Show();
+        Close();
+    }
 
-        private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
-        {
-            Desert deserts = new Desert();
-            deserts.Show();
-            this.Close();
-        }
+    private void ButtonDeserts_OnClick(object sender, RoutedEventArgs e)
+    {
+        var deserts = new Desert();
+        deserts.Show();
+        Close();
+    }
 
-        private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
-        {
-            Souse us = new Souse();
-            us.Show();
-            this.Close();
-        }
+    private void ButtonSouses_OnClick(object sender, RoutedEventArgs e)
+    {
+        var us = new Souse();
+        us.Show();
+        Close();
+    }
 
-        private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    private void ButtonToProfile_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (App.CurrentUser != null)
         {
-            if (App.CurrentUser != null)
+            var profile = new Profile2();
+            profile.Show();
+            Close();
+        }
+        else
+        {
+            var profile = new Profile();
+            profile.Show();
+            Close();
+        }
+    }
+
+    private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
+    {
+        var recipes = new Recipes();
+        recipes.Show();
+        Close();
+    }
+
+    private void ButtonToGeneral_OnClick(object sender, RoutedEventArgs e)
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.Show();
+        Close();
+    }
+
+    private void ButtonAddNewRecipe_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (App.CurrentUser != null)
+        {
+            var dobavlenie = new Dobavlenie();
+            dobavlenie.Show();
+            Close();
+        }
+        else
+        {
+            MessageBox.Show("Для добавления рецепта нужно войти в профиль!");
+        }
+    }
+
+    private void ButtonReg_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(BoxLogin.Text) &&
+            !string.IsNullOrEmpty(BoxPassword.Password) &&
+            !string.IsNullOrEmpty(PickerDate.Text) &&
+            !string.IsNullOrEmpty(BoxLastName.Text) &&
+            !string.IsNullOrEmpty(BoxName.Text))
+        {
+            DateTime? selectedDateNullable = PickerDate.SelectedDate;
+
+            if (selectedDateNullable.HasValue)
             {
-                Profile2 profile = new Profile2();
-                profile.Show();
-                this.Close();
+                DateTime selectedDate = selectedDateNullable.Value;
+
+                if (selectedDate != null)
+                {
+                    DateTime currentDate = DateTime.Today;
+                    int age = currentDate.Year - selectedDate.Year;
+
+                    if (currentDate.Month < selectedDate.Month ||
+                        (currentDate.Month == selectedDate.Month && currentDate.Day < selectedDate.Day))
+                    {
+                        age--;
+                    }
+
+                    if (age < 12)
+                    {
+                        MessageBox.Show("Ваш возраст не может быть меньше 12 лет!");
+                    }
+                }
+
+                if (BoxLogin.Text.Length <= 4)
+                {
+                    MessageBox.Show("Длина логина должна превышать 4 символа!");
+                }
+                else if (BoxPassword.Password.Length <= 4)
+                {
+                    MessageBox.Show("Длина пароля должна превышать 4 символа!");
+                }
+                else if (BoxLastName.Text.Length <= 3)
+                {
+                    MessageBox.Show("Длина фамилии должна превышать 3 символа!");
+                }
+                else if (BoxName.Text.Length <= 1)
+                {
+                    MessageBox.Show("Длина имени должна превышать 1 символ!");
+                }
             }
             else
             {
-                Profile profile = new Profile();
-                profile.Show();
-                this.Close();
-            }
-        }
-
-        private void ButtonToRecipes_OnClick(object sender, RoutedEventArgs e)
-        {
-            Recipes recipes = new Recipes();
-            recipes.Show();
-            this.Close();
-        }
-
-        private void ButtonToGeneral_OnClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
-
-        private void ButtonAddNewRecipe_OnClick(object sender, RoutedEventArgs e)
-        {
-            Dobavlenie dobavlenie = new Dobavlenie();
-            dobavlenie.Show();
-            this.Close();
-        }
-
-        private void ButtonReg_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(BoxLogin.Text) &&
-                !string.IsNullOrEmpty(BoxPassword.Password.ToString()) &&
-                !string.IsNullOrEmpty(PickerDate.Text) &&
-                !string.IsNullOrEmpty(BoxLastName.Text) &&
-                !string.IsNullOrEmpty(BoxName.Text))
-            {
-                Person? existPerson = db.People
-                    .Where(p => p.Login == BoxLogin.Text && p.Password == p.Password).FirstOrDefault();
+                var existPerson = db.People
+                    .Where(p => p.Login == BoxLogin.Text).FirstOrDefault();
 
                 if (existPerson != null)
                 {
-                    MessageBox.Show("Ошибка!");
+                    MessageBox.Show("Ошибка! Логин уже занят");
                 }
                 else
                 {
-                    Person person = new Person()
-                {
-                    FirstName = BoxName.Text,
-                    LastName = BoxLastName.Text,
-                    Birthday = DateTime.Parse(PickerDate.Text),
-                    Login = BoxLogin.Text,
-                    Password = BoxPassword.Password.ToString()
-                };
+                    var person = new Person
+                    {
+                        FirstName = BoxName.Text,
+                        LastName = BoxLastName.Text,
+                        Birthday = DateTime.Parse(PickerDate.Text),
+                        Login = BoxLogin.Text,
+                        Password = BoxPassword.Password
+                    };
                     db.People.Add(person);
                     db.SaveChanges();
 
                     App.CurrentUser = person;
-                    Profile2 profile2 = new Profile2();
+                    var profile2 = new Profile2();
                     profile2.Show();
-                    this.Close();
+                    Close();
                 }
-
-                
             }
-            else
-            {
-                MessageBox.Show("Не все поля заполнены!");
-            }
+        }
+        else
+        {
+            MessageBox.Show("Не все поля заполнены!");
         }
     }
 }
